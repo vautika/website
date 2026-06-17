@@ -65,15 +65,14 @@ const conditions = [
 
 export default function ConditionsSection() {
   return (
-    <section className="section-padding bg-gray-50 dark:bg-gray-900">
+    <section className="section-padding bg-slate-50">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="badge bg-secondary-50 dark:bg-secondary-900/30 text-secondary-600 dark:text-secondary-400 mb-4">
+          <span className="badge mb-4">
             Conditions We Treat
           </span>
           <h2 className="section-title mb-4">
-            Expert Treatment for{' '}
-            <span className="gradient-text">All Conditions</span>
+            Expert Treatment for <span className="font-medium italic text-secondary-700">All Conditions</span>
           </h2>
           <p className="section-subtitle">
             From chronic pain to acute sports injuries, we provide specialized physiotherapy for a wide range of musculoskeletal and neurological conditions.
@@ -85,23 +84,23 @@ export default function ConditionsSection() {
             <Link
               key={name}
               href="/appointment/"
-              className="card p-5 group bg-white dark:bg-gray-800 hover:border-primary-200 dark:hover:border-primary-800 border border-transparent"
+              className="card p-5 group bg-white border border-stone-200/50 hover:border-accent-500"
               title={`${name} Treatment in Bhubaneswar`}
             >
               <div className="text-3xl mb-3">{emoji}</div>
-              <h3 className="font-display font-semibold text-gray-900 dark:text-white text-sm mb-2">
+              <h3 className="font-display font-bold text-primary-900 text-sm mb-2">
                 {name}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-xs leading-relaxed">
+              <p className="text-slate-500 text-xs leading-relaxed">
                 {description}
               </p>
             </Link>
           ))}
         </div>
 
-        <p className="text-center text-sm text-gray-500 dark:text-gray-500 mt-8">
+        <p className="text-center text-sm text-slate-500 mt-8">
           Don't see your condition?{' '}
-          <Link href="/contact/" className="text-primary-900 dark:text-primary-300 hover:underline font-semibold">
+          <Link href="/contact/" className="text-primary-900 hover:underline font-bold">
             Contact us
           </Link>{' '}
           — we likely treat it.

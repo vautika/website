@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X, Phone, ChevronDown, Calendar } from 'lucide-react'
-import Logo from '@/components/ui/Logo'
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -48,40 +47,36 @@ export default function Header() {
 
   const navLinkClass = (href: string, exact = false) => {
     const active = exact ? pathname === href : pathname.startsWith(href)
-    const base = 'relative px-4 py-2 rounded-lg text-sm font-semibold font-display transition-all duration-200 group'
+    const base = 'relative px-4 py-2 rounded-lg text-sm font-bold font-sans tracking-wide transition-all duration-200 group'
     if (active) {
-      return `${base} ${scrolled
-        ? 'text-primary-300'
-        : 'text-white'}`
+      return `${base} text-primary-900`
     }
-    return `${base} ${scrolled
-      ? 'text-gray-300 hover:text-primary-300'
-      : 'text-white/80 hover:text-white'}`
+    return `${base} text-slate-600 hover:text-primary-900`
   }
 
   return (
     <>
       {/* Top info bar */}
-      <div className="bg-gradient-to-r from-primary-950 to-secondary-900 text-white text-xs hidden md:block">
-        <div className="container-custom flex justify-between items-center py-2">
-          <div className="flex items-center gap-4 text-white/70">
-            <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+      <div className="bg-primary-900 text-white/90 text-xs hidden md:block">
+        <div className="container-custom flex justify-between items-center py-2.5">
+          <div className="flex items-center gap-4 text-white/80">
+            <span className="flex items-center gap-1.5 font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
               Mon–Sat: 9 AM–9 PM &nbsp;|&nbsp; Sun: 8 AM–1 PM
             </span>
           </div>
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-6">
             <a
               href="mailto:vautika.info@gmail.com"
-              className="text-white/70 hover:text-accent-400 transition-colors"
+              className="text-white/80 hover:text-accent-400 transition-colors"
             >
               vautika.info@gmail.com
             </a>
             <a
               href="tel:+917381455744"
-              className="flex items-center gap-1.5 text-white hover:text-accent-400 transition-colors font-bold tracking-wide"
+              className="flex items-center gap-1.5 text-white hover:text-accent-400 transition-colors font-bold tracking-wider"
             >
-              <Phone className="w-3 h-3" />
+              <Phone className="w-3.5 h-3.5" />
               7381455744
             </a>
           </div>
@@ -91,10 +86,10 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-gray-950/95 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.3)] border-b border-gray-800/50'
+            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-stone-200/50'
             : 'bg-transparent'
         }`}
-        style={{ top: scrolled ? 0 : '1.75rem' }}
+        style={{ top: scrolled ? 0 : '2.25rem' }}
       >
         <div className="container-custom">
           <div className={`flex items-center justify-between transition-all duration-500 ${
@@ -106,9 +101,10 @@ export default function Header() {
               aria-label="Vautika Physiotherapy Home"
               className="shrink-0 transition-transform duration-300 hover:scale-105"
             >
-              <Logo
-                className={`w-auto transition-all duration-500 ${scrolled ? 'h-9' : 'h-11'}`}
-                scrolled={scrolled}
+              <img
+                src="/website/images/logo.png"
+                alt="Vautika Logo"
+                className={`w-auto transition-all duration-500 object-contain ${scrolled ? 'h-9' : 'h-11'}`}
               />
             </Link>
 
@@ -134,7 +130,7 @@ export default function Header() {
                     </button>
 
                     {/* Dropdown */}
-                    <div className={`absolute top-full left-0 mt-2 bg-gray-900 rounded-2xl shadow-premium border border-gray-800 py-2 min-w-[200px] z-50 transition-all duration-200 ${
+                    <div className={`absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-premium border border-slate-100 py-2 min-w-[200px] z-50 transition-all duration-200 ${
                       activeDropdown === item.label
                         ? 'opacity-100 translate-y-0 pointer-events-auto'
                         : 'opacity-0 -translate-y-2 pointer-events-none'
@@ -143,7 +139,7 @@ export default function Header() {
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="flex items-center gap-2 px-5 py-2.5 text-sm text-gray-200 hover:text-primary-300 hover:bg-primary-900/20 font-display font-medium transition-colors"
+                          className="flex items-center gap-2 px-5 py-2.5 text-sm text-slate-700 hover:text-primary-900 hover:bg-slate-50 font-medium transition-colors"
                         >
                           <span className="w-1.5 h-1.5 rounded-full bg-accent-500" />
                           {child.label}
@@ -169,11 +165,7 @@ export default function Header() {
               {/* CTA button */}
               <Link
                 href="/appointment/"
-                className={`hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold font-display tracking-wide transition-all duration-300 hover:-translate-y-0.5 ${
-                  scrolled
-                    ? 'bg-gradient-to-r from-primary-900 to-secondary-700 text-white shadow-card hover:shadow-glow-primary'
-                    : 'bg-white/15 backdrop-blur-sm border border-white/30 text-white hover:bg-white/25'
-                }`}
+                className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold font-sans tracking-wider uppercase transition-all duration-300 hover:-translate-y-0.5 bg-primary-900 text-white shadow-sm hover:shadow-card hover:bg-primary-800"
               >
                 <Calendar className="w-4 h-4" />
                 Book Now
@@ -181,11 +173,7 @@ export default function Header() {
 
               {/* Mobile menu toggle */}
               <button
-                className={`lg:hidden p-2 rounded-xl transition-colors ${
-                  scrolled
-                    ? 'text-gray-200 hover:bg-gray-800'
-                    : 'text-white hover:bg-white/10'
-                }`}
+                className={`lg:hidden p-2 rounded-xl transition-colors text-slate-700 hover:bg-slate-100`}
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label="Toggle menu"
                 aria-expanded={isOpen}
@@ -201,7 +189,7 @@ export default function Header() {
       </header>
 
       {/* Spacer */}
-      <div className="h-[calc(1.75rem+5rem)] md:h-[calc(1.75rem+5rem)]" />
+      <div className="h-[calc(2.25rem+5rem)] md:h-[calc(2.25rem+5rem)]" />
 
       {/* Mobile Menu Overlay */}
       <div className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${
@@ -209,17 +197,21 @@ export default function Header() {
       }`}>
         {/* Backdrop */}
         <div
-          className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+          className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"
           onClick={() => setIsOpen(false)}
         />
 
         {/* Panel */}
-        <div className={`absolute top-0 right-0 h-full w-[85vw] max-w-sm bg-gray-950 shadow-2xl transition-transform duration-300 flex flex-col ${
+        <div className={`absolute top-0 right-0 h-full w-[85vw] max-w-sm bg-white shadow-2xl transition-transform duration-300 flex flex-col ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}>
           {/* Panel header */}
-          <div className="gradient-bg p-6 flex items-center justify-between">
-            <Logo className="h-9 w-auto" scrolled={false} />
+          <div className="bg-primary-900 p-6 flex items-center justify-between">
+            <img
+              src="/website/images/logo.png"
+              alt="Vautika Logo"
+              className="h-9 w-auto object-contain"
+            />
             <button
               onClick={() => setIsOpen(false)}
               className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
@@ -229,15 +221,15 @@ export default function Header() {
           </div>
 
           {/* Nav links */}
-          <nav className="flex-1 overflow-y-auto p-5 space-y-1">
+          <nav className="flex-1 overflow-y-auto p-5 space-y-1 bg-white">
             {navItems.map((item, i) => (
               <div key={item.href}>
                 <Link
                   href={item.href}
-                  className={`flex items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-semibold font-display transition-all duration-200 ${
+                  className={`flex items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-semibold font-sans transition-all duration-200 ${
                     pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href))
-                      ? 'bg-gradient-to-r from-primary-900 to-secondary-700 text-white shadow-card'
-                      : 'text-gray-200 hover:bg-gray-900/60 hover:text-primary-300'
+                      ? 'bg-slate-100 text-primary-900 shadow-sm'
+                      : 'text-slate-600 hover:bg-slate-50 hover:text-primary-900'
                   }`}
                   style={{ transitionDelay: `${i * 40}ms` }}
                 >
@@ -248,7 +240,7 @@ export default function Header() {
                   <Link
                     key={child.href}
                     href={child.href}
-                    className="flex items-center gap-3 ml-5 px-4 py-2.5 rounded-xl text-sm text-gray-400 hover:bg-gray-900/60 hover:text-primary-300 transition-colors mt-0.5"
+                    className="flex items-center gap-3 ml-5 px-4 py-2.5 rounded-xl text-sm text-slate-500 hover:bg-slate-50 hover:text-primary-900 transition-colors mt-0.5"
                   >
                     <span className="w-1 h-1 rounded-full bg-secondary-500" />
                     {child.label}
@@ -259,17 +251,17 @@ export default function Header() {
           </nav>
 
           {/* Mobile CTA */}
-          <div className="p-5 border-t border-gray-800 space-y-3">
+          <div className="p-5 border-t border-slate-100 space-y-3 bg-white">
             <a
               href="tel:+917381455744"
-              className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-gray-800 text-white font-bold font-display text-sm hover:bg-gray-700 transition-colors"
+              className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-slate-100 text-slate-700 font-bold font-sans text-sm hover:bg-slate-200 transition-colors"
             >
               <Phone className="w-4 h-4" />
               Call: 7381455744
             </a>
             <Link
               href="/appointment/"
-              className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl gradient-bg text-white font-bold font-display text-sm hover:shadow-glow-primary transition-all duration-300"
+              className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-primary-900 text-white font-bold font-sans text-sm hover:bg-primary-800 transition-all duration-300"
             >
               <Calendar className="w-4 h-4" />
               Book Appointment

@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import type React from 'react'
-import { Inter, Poppins } from 'next/font/google'
+import { Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google'
 import '../styles/globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -8,16 +8,15 @@ import FloatingButtons from '@/components/ui/FloatingButtons'
 import BackToTop from '@/components/ui/BackToTop'
 import StructuredData from '@/components/ui/StructuredData'
 
-const inter = Inter({
+const playfair = Playfair_Display({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-playfair',
   display: 'swap',
 })
 
-const poppins = Poppins({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-poppins',
+  variable: '--font-jakarta',
   display: 'swap',
 })
 
@@ -111,7 +110,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable} dark`} suppressHydrationWarning>
+    <html lang="en" className={`${jakarta.variable} ${playfair.variable}`} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/website/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/website/icons/apple-touch-icon.png" />
