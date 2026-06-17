@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Contact Vautika Physiotherapy | Bhubaneswar',
   description:
     'Contact Vautika Physiotherapy & Rehabilitation Centre in Bhubaneswar. Call 7381455744, email vautika.info@gmail.com, or visit us at IRC Village, Nayapalli.',
-  alternates: { canonical: 'https://vautika.github.io/website/contact/' },
+  alternates: { canonical: 'https://vautika.in/contact/' },
 }
 
 export default function ContactPage() {

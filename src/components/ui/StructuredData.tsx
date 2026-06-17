@@ -4,13 +4,13 @@ export default function StructuredData() {
     '@graph': [
       {
         '@type': ['MedicalBusiness', 'LocalBusiness', 'MedicalClinic'],
-        '@id': 'https://vautika.github.io/website/#organization',
+        '@id': 'https://vautika.in/#organization',
         name: 'Vautika Physiotherapy & Rehabilitation Centre',
         alternateName: 'Vautika Physio',
-        url: 'https://vautika.github.io/website',
+        url: 'https://vautika.in',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://vautika.github.io/website/images/logo.svg',
+          url: 'https://vautika.in/images/logo.svg',
         },
         description:
           'Expert physiotherapy, sports rehabilitation, pain management, neuro rehabilitation and advanced therapy solutions in Bhubaneswar, Odisha.',
@@ -68,7 +68,7 @@ export default function StructuredData() {
       },
       {
         '@type': 'Physician',
-        '@id': 'https://vautika.github.io/website/#physician',
+        '@id': 'https://vautika.in/#physician',
         name: 'Dr. Satya Mohanty',
         honorificPrefix: 'Dr.',
         honorificSuffix: 'PT, MPT (MSK)',
@@ -76,25 +76,25 @@ export default function StructuredData() {
         description:
           'MPT in Musculoskeletal Physiotherapy with FIFA Diploma in Sports Medicine. Expert in orthopedic, sports, and neuro rehabilitation.',
         worksFor: {
-          '@id': 'https://vautika.github.io/website/#organization',
+          '@id': 'https://vautika.in/#organization',
         },
         medicalSpecialty: 'Physical Therapy',
         telephone: '+917381455744',
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://vautika.github.io/website/#website',
-        url: 'https://vautika.github.io/website',
+        '@id': 'https://vautika.in/#website',
+        url: 'https://vautika.in',
         name: 'Vautika Physiotherapy & Rehabilitation Centre',
         description: 'Best Physiotherapy Clinic in Bhubaneswar',
         publisher: {
-          '@id': 'https://vautika.github.io/website/#organization',
+          '@id': 'https://vautika.in/#organization',
         },
         potentialAction: {
           '@type': 'SearchAction',
           target: {
             '@type': 'EntryPoint',
-            urlTemplate: 'https://vautika.github.io/website/search?q={search_term_string}',
+            urlTemplate: 'https://vautika.in/search?q={search_term_string}',
           },
           'query-input': 'required name=search_term_string',
         },

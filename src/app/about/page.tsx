@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'About Vautika Physiotherapy | Dr. Satya Mohanty (PT) Bhubaneswar',
   description:
     'Learn about Vautika Physiotherapy & Rehabilitation Centre and Dr. Satya Mohanty (PT), MPT (MSK), FIFA Sports Medicine Diploma. Best physiotherapy clinic in Bhubaneswar, Odisha.',
-  alternates: { canonical: 'https://vautika.github.io/website/about/' },
+  alternates: { canonical: 'https://vautika.in/about/' },
 }
 
 const milestones = [

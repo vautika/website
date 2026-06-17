@@ -175,7 +175,7 @@ export default function HeroSection() {
               {/* Main clinic image frame */}
               <div className="relative bg-white p-3 rounded-3xl border border-stone-200/60 shadow-elegant overflow-hidden">
                 <img
-                  src="/website/images/hero-clinic.png"
+                  src="/images/hero-clinic.png"
                   alt="Vautika Physiotherapy Treatment Room"
                   className="rounded-2xl w-full h-[320px] sm:h-[380px] lg:h-[420px] object-cover"
                 />

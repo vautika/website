@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description:
     'Vautika Physiotherapy & Rehabilitation Centre — Expert physiotherapy, sports rehab, pain management & neuro rehab in Bhubaneswar. Dr. Satya Mohanty (PT), MPT (MSK), FIFA Sports Medicine. Book appointment: 7381455744.',
   alternates: {
-    canonical: 'https://vautika.github.io/website',
+    canonical: 'https://vautika.in',
   },
 }
 

@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vautika.github.io/website/sitemap.xml
+Sitemap: https://vautika.in/sitemap.xml
 
 # Disallow admin or private areas
 Disallow: /api/

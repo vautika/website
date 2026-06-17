@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Privacy Policy | Vautika Physiotherapy Bhubaneswar',
   description: 'Privacy Policy for Vautika Physiotherapy & Rehabilitation Centre. Learn how we protect your personal and medical data.',
-  alternates: { canonical: 'https://vautika.github.io/website/privacy/' },
+  alternates: { canonical: 'https://vautika.in/privacy/' },
 }
 
 export default function PrivacyPage() {

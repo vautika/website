@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Our Therapies | Vautika Physiotherapy Bhubaneswar',
   description:
     'Advanced therapies at Vautika Physiotherapy: Manual Therapy, Electrotherapy, Laser Therapy, Cupping, Dry Needling, Sports Training in Bhubaneswar.',
-  alternates: { canonical: 'https://vautika.github.io/website/therapies/' },
+  alternates: { canonical: 'https://vautika.in/therapies/' },
 }
 
 const therapies = [

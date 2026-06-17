@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Physiotherapy Blog | Vautika Physiotherapy Bhubaneswar',
   description:
     'Expert physiotherapy articles and health tips from Dr. Satya Mohanty. Learn about back pain, sports injuries, rehabilitation, and more.',
-  alternates: { canonical: 'https://vautika.github.io/website/blog/' },
+  alternates: { canonical: 'https://vautika.in/blog/' },
 }
 
 const posts = [

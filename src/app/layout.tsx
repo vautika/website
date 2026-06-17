@@ -21,7 +21,7 @@ const jakarta = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://vautika.github.io/website'),
+  metadataBase: new URL('https://vautika.in'),
   title: {
     default: 'Vautika Physiotherapy & Rehabilitation Centre | Best Physiotherapy Clinic in Bhubaneswar',
     template: '%s | Vautika Physiotherapy Bhubaneswar',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     'IRC Village Physiotherapy',
     'Nayapalli Physiotherapy',
   ],
-  authors: [{ name: 'Dr. Satya Mohanty (PT)', url: 'https://vautika.github.io/website' }],
+  authors: [{ name: 'Dr. Satya Mohanty (PT)', url: 'https://vautika.in' }],
   creator: 'Vautika Physiotherapy & Rehabilitation Centre',
   publisher: 'Vautika Physiotherapy & Rehabilitation Centre',
   robots: {
@@ -65,14 +65,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://vautika.github.io/website',
+    url: 'https://vautika.in',
     siteName: 'Vautika Physiotherapy & Rehabilitation Centre',
     title: 'Vautika Physiotherapy & Rehabilitation Centre | Best Physiotherapy Clinic in Bhubaneswar',
     description:
       'Expert physiotherapy, sports rehabilitation, pain management & neuro rehabilitation in Bhubaneswar. Book your appointment with Dr. Satya Mohanty (PT).',
     images: [
       {
-        url: '/website/images/og-image.jpg',
+        url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Vautika Physiotherapy & Rehabilitation Centre Bhubaneswar',
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     images: ['/images/og-image.jpg'],
   },
   alternates: {
-    canonical: 'https://vautika.github.io/website',
+    canonical: 'https://vautika.in',
   },
   verification: {
     google: 'your-google-verification-code',
@@ -112,9 +112,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${jakarta.variable} ${playfair.variable}`} suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/website/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/website/icons/apple-touch-icon.png" />
-        <link rel="manifest" href="/website/manifest.json" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
         <meta name="geo.region" content="IN-OR" />
         <meta name="geo.placename" content="Bhubaneswar, Odisha, India" />
         <meta name="geo.position" content="20.2961;85.8189" />

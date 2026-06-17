@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Physiotherapy Services in Bhubaneswar | Vautika Physiotherapy',
   description:
     'Comprehensive physiotherapy services in Bhubaneswar: Orthopedic Rehabilitation, Neuro Rehab, Sports Rehabilitation, Pain Management, Pediatric Rehab, Manual Therapy, Laser Therapy and more.',
-  alternates: { canonical: 'https://vautika.github.io/website/services/' },
+  alternates: { canonical: 'https://vautika.in/services/' },
 }
 
 const services = [
