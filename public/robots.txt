@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://vautikaphysiotherapy.com/sitemap.xml
-
-# Disallow admin or private areas
-Disallow: /api/
-Disallow: /_next/
