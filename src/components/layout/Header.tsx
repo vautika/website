@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X, Phone, ChevronDown, Calendar } from 'lucide-react'
+import Logo from '@/components/ui/Logo'
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -101,10 +102,9 @@ export default function Header() {
               aria-label="Vautika Physiotherapy Home"
               className="shrink-0 transition-transform duration-300 hover:scale-105"
             >
-              <img
-                src="/website/images/logo.png"
-                alt="Vautika Logo"
-                className={`w-auto transition-all duration-500 object-contain ${scrolled ? 'h-9' : 'h-11'}`}
+              <Logo
+                className={`w-auto transition-all duration-500 ${scrolled ? 'h-9' : 'h-11'}`}
+                theme="light"
               />
             </Link>
 
@@ -129,22 +129,24 @@ export default function Header() {
                       }`} />
                     </button>
 
-                    {/* Dropdown */}
-                    <div className={`absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-premium border border-slate-100 py-2 min-w-[200px] z-50 transition-all duration-200 ${
+                    {/* Dropdown container with no margin to prevent hover gaps */}
+                    <div className={`absolute top-full left-0 pt-2 min-w-[200px] z-50 transition-all duration-200 ${
                       activeDropdown === item.label
                         ? 'opacity-100 translate-y-0 pointer-events-auto'
                         : 'opacity-0 -translate-y-2 pointer-events-none'
                     }`}>
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="flex items-center gap-2 px-5 py-2.5 text-sm text-slate-700 hover:text-primary-900 hover:bg-slate-50 font-medium transition-colors"
-                        >
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent-500" />
-                          {child.label}
-                        </Link>
-                      ))}
+                      <div className="bg-white rounded-2xl shadow-premium border border-slate-100 py-2">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="flex items-center gap-2 px-5 py-2.5 text-sm text-slate-700 hover:text-primary-900 hover:bg-slate-50 font-medium transition-colors"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent-500" />
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 ) : (
@@ -207,10 +209,9 @@ export default function Header() {
         }`}>
           {/* Panel header */}
           <div className="bg-primary-900 p-6 flex items-center justify-between">
-            <img
-              src="/website/images/logo.png"
-              alt="Vautika Logo"
-              className="h-9 w-auto object-contain"
+            <Logo
+              className="h-9 w-auto"
+              theme="dark"
             />
             <button
               onClick={() => setIsOpen(false)}

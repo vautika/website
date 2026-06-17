@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { Phone, Mail, MapPin, Clock, ArrowRight, Heart, Calendar } from 'lucide-react'
+import Logo from '@/components/ui/Logo'
 
 function useInView(threshold = 0.05) {
   const ref = useRef<HTMLDivElement>(null)
@@ -111,10 +112,9 @@ export default function Footer() {
           >
             {/* Column 1: Brand */}
             <div className="space-y-6">
-              <img
-                src="/website/images/logo.png"
-                alt="Vautika Logo"
-                className="h-10 w-auto object-contain"
+              <Logo
+                className="h-10 w-auto"
+                theme="dark"
               />
               <p className="text-sm text-slate-400 leading-relaxed">
                 Bhubaneswar's premier clinical centre for advanced, evidence-based physiotherapy, injury recovery, and pain rehabilitation.
