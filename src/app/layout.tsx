@@ -111,7 +111,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${poppins.variable} dark`} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/website/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/website/icons/apple-touch-icon.png" />

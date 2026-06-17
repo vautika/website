@@ -1,9 +1,9 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Phone, Sun, Moon, ChevronDown, Calendar } from 'lucide-react'
+import { Menu, X, Phone, ChevronDown, Calendar } from 'lucide-react'
 import Logo from '@/components/ui/Logo'
 
 const navItems = [
@@ -24,37 +24,11 @@ const navItems = [
 export default function Header() {
   const [isOpen, setIsOpen]               = useState(false)
   const [scrolled, setScrolled]           = useState(false)
-  const [dark, setDark]                   = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
-  const [scrollY, setScrollY]             = useState(0)
   const pathname = usePathname()
 
   useEffect(() => {
-    const stored = localStorage.getItem('theme')
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    if (stored === 'dark' || (!stored && prefersDark)) {
-      setDark(true)
-      document.documentElement.classList.add('dark')
-    }
-  }, [])
-
-  const toggleDark = useCallback(() => {
-    setDark((prev) => {
-      const next = !prev
-      if (next) {
-        document.documentElement.classList.add('dark')
-        localStorage.setItem('theme', 'dark')
-      } else {
-        document.documentElement.classList.remove('dark')
-        localStorage.setItem('theme', 'light')
-      }
-      return next
-    })
-  }, [])
-
-  useEffect(() => {
     const onScroll = () => {
-      setScrollY(window.scrollY)
       setScrolled(window.scrollY > 20)
     }
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -77,18 +51,18 @@ export default function Header() {
     const base = 'relative px-4 py-2 rounded-lg text-sm font-semibold font-display transition-all duration-200 group'
     if (active) {
       return `${base} ${scrolled
-        ? 'text-primary-900 dark:text-primary-300'
+        ? 'text-primary-300'
         : 'text-white'}`
     }
     return `${base} ${scrolled
-      ? 'text-gray-600 dark:text-gray-300 hover:text-primary-900 dark:hover:text-primary-300'
+      ? 'text-gray-300 hover:text-primary-300'
       : 'text-white/80 hover:text-white'}`
   }
 
   return (
     <>
       {/* Top info bar */}
-      <div className="bg-gradient-to-r from-primary-950 to-secondary-900 dark:from-black dark:to-gray-950 text-white text-xs hidden md:block">
+      <div className="bg-gradient-to-r from-primary-950 to-secondary-900 text-white text-xs hidden md:block">
         <div className="container-custom flex justify-between items-center py-2">
           <div className="flex items-center gap-4 text-white/70">
             <span className="flex items-center gap-1.5">
@@ -117,7 +91,7 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-white/90 dark:bg-gray-950/90 backdrop-blur-2xl shadow-[0_2px_30px_rgba(0,0,0,0.08)] border-b border-white/20 dark:border-gray-800/50'
+            ? 'bg-gray-950/95 backdrop-blur-2xl shadow-[0_4px_30px_rgba(0,0,0,0.3)] border-b border-gray-800/50'
             : 'bg-transparent'
         }`}
         style={{ top: scrolled ? 0 : '1.75rem' }}
@@ -160,7 +134,7 @@ export default function Header() {
                     </button>
 
                     {/* Dropdown */}
-                    <div className={`absolute top-full left-0 mt-2 bg-white dark:bg-gray-900 rounded-2xl shadow-premium border border-gray-100 dark:border-gray-800 py-2 min-w-[200px] z-50 transition-all duration-200 ${
+                    <div className={`absolute top-full left-0 mt-2 bg-gray-900 rounded-2xl shadow-premium border border-gray-800 py-2 min-w-[200px] z-50 transition-all duration-200 ${
                       activeDropdown === item.label
                         ? 'opacity-100 translate-y-0 pointer-events-auto'
                         : 'opacity-0 -translate-y-2 pointer-events-none'
@@ -169,7 +143,7 @@ export default function Header() {
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="flex items-center gap-2 px-5 py-2.5 text-sm text-gray-700 dark:text-gray-200 hover:text-primary-900 dark:hover:text-primary-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 font-display font-medium transition-colors"
+                          className="flex items-center gap-2 px-5 py-2.5 text-sm text-gray-200 hover:text-primary-300 hover:bg-primary-900/20 font-display font-medium transition-colors"
                         >
                           <span className="w-1.5 h-1.5 rounded-full bg-accent-500" />
                           {child.label}
@@ -192,22 +166,6 @@ export default function Header() {
 
             {/* Right actions */}
             <div className="flex items-center gap-2">
-              {/* Dark mode toggle */}
-              <button
-                onClick={toggleDark}
-                aria-label="Toggle dark mode"
-                className={`p-2 rounded-xl transition-all duration-200 ${
-                  scrolled
-                    ? 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary-900 dark:hover:text-primary-300'
-                    : 'text-white/70 hover:text-white hover:bg-white/10'
-                }`}
-              >
-                {dark
-                  ? <Sun className="w-4 h-4" />
-                  : <Moon className="w-4 h-4" />
-                }
-              </button>
-
               {/* CTA button */}
               <Link
                 href="/appointment/"
@@ -225,7 +183,7 @@ export default function Header() {
               <button
                 className={`lg:hidden p-2 rounded-xl transition-colors ${
                   scrolled
-                    ? 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
+                    ? 'text-gray-200 hover:bg-gray-800'
                     : 'text-white hover:bg-white/10'
                 }`}
                 onClick={() => setIsOpen(!isOpen)}
@@ -251,12 +209,12 @@ export default function Header() {
       }`}>
         {/* Backdrop */}
         <div
-          className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+          className="absolute inset-0 bg-black/60 backdrop-blur-sm"
           onClick={() => setIsOpen(false)}
         />
 
         {/* Panel */}
-        <div className={`absolute top-0 right-0 h-full w-[85vw] max-w-sm bg-white dark:bg-gray-950 shadow-2xl transition-transform duration-300 flex flex-col ${
+        <div className={`absolute top-0 right-0 h-full w-[85vw] max-w-sm bg-gray-950 shadow-2xl transition-transform duration-300 flex flex-col ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}>
           {/* Panel header */}
@@ -279,7 +237,7 @@ export default function Header() {
                   className={`flex items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-semibold font-display transition-all duration-200 ${
                     pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href))
                       ? 'bg-gradient-to-r from-primary-900 to-secondary-700 text-white shadow-card'
-                      : 'text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800/60 hover:text-primary-900 dark:hover:text-primary-300'
+                      : 'text-gray-200 hover:bg-gray-900/60 hover:text-primary-300'
                   }`}
                   style={{ transitionDelay: `${i * 40}ms` }}
                 >
@@ -290,7 +248,7 @@ export default function Header() {
                   <Link
                     key={child.href}
                     href={child.href}
-                    className="flex items-center gap-3 ml-5 px-4 py-2.5 rounded-xl text-sm text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800/60 hover:text-primary-900 transition-colors mt-0.5"
+                    className="flex items-center gap-3 ml-5 px-4 py-2.5 rounded-xl text-sm text-gray-400 hover:bg-gray-900/60 hover:text-primary-300 transition-colors mt-0.5"
                   >
                     <span className="w-1 h-1 rounded-full bg-secondary-500" />
                     {child.label}
@@ -301,10 +259,10 @@ export default function Header() {
           </nav>
 
           {/* Mobile CTA */}
-          <div className="p-5 border-t border-gray-100 dark:border-gray-800 space-y-3">
+          <div className="p-5 border-t border-gray-800 space-y-3">
             <a
               href="tel:+917381455744"
-              className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white font-bold font-display text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-gray-800 text-white font-bold font-display text-sm hover:bg-gray-700 transition-colors"
             >
               <Phone className="w-4 h-4" />
               Call: 7381455744
@@ -316,14 +274,6 @@ export default function Header() {
               <Calendar className="w-4 h-4" />
               Book Appointment
             </Link>
-            {/* Dark mode */}
-            <button
-              onClick={toggleDark}
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
-            >
-              {dark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-              {dark ? 'Light Mode' : 'Dark Mode'}
-            </button>
           </div>
         </div>
       </div>

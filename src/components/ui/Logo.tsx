@@ -80,7 +80,7 @@ export default function Logo({ className = 'h-12 w-auto', scrolled = true, varia
         fontFamily="Poppins, sans-serif"
         fontSize="22"
         fontWeight="800"
-        fill={isDark ? '#ffffff' : '#1a0a3e'}
+        fill="#ffffff"
         letterSpacing="2"
       >
         VAUTIKA
@@ -95,7 +95,7 @@ export default function Logo({ className = 'h-12 w-auto', scrolled = true, varia
         fontFamily="Poppins, sans-serif"
         fontSize="9"
         fontWeight="600"
-        fill={isDark ? 'rgba(255,255,255,0.75)' : '#3D1F7A'}
+        fill="rgba(255,255,255,0.75)"
         letterSpacing="3.5"
       >
         PHYSIOTHERAPY &amp; REHABILITATION
