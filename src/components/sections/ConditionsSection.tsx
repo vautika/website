@@ -65,7 +65,7 @@ const conditions = [
 
 export default function ConditionsSection() {
   return (
-    <section className="section-padding bg-slate-50">
+    <section className="section-padding bg-clinical-sage">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="badge mb-4">

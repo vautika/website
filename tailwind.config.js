@@ -51,6 +51,12 @@ module.exports = {
           500: '#BCA374',
           600: '#947D54',
         },
+        clinical: {
+          sage: '#EBF2F0',
+          cream: '#FAF6F0',
+          slate: '#F0F4F8',
+          slateMed: '#E1E8F0',
+        },
       },
       fontFamily: {
         sans:    ['var(--font-jakarta)', 'Plus Jakarta Sans', 'Inter', 'sans-serif'],

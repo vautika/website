@@ -142,7 +142,7 @@ export default function ServicesSection() {
   const { ref, inView } = useInView(0.05)
 
   return (
-    <section id="services" className="section-padding bg-[#FAFAF9]" ref={ref}>
+    <section id="services" className="section-padding bg-clinical-sage" ref={ref}>
       <div className="container-custom">
         {/* Header */}
         <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-800 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>

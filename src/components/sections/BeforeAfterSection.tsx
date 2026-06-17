@@ -69,7 +69,7 @@ const recoveries = [
 
 export default function BeforeAfterSection() {
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-clinical-cream">
       <div className="container-custom">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">

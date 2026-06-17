@@ -90,7 +90,7 @@ export default function TestimonialsSection() {
 
   return (
     <section
-      className="section-padding relative overflow-hidden bg-gradient-to-br from-[#F5F7F6] to-[#FAFAF9]"
+      className="section-padding relative overflow-hidden bg-gradient-to-br from-clinical-slate to-clinical-slateMed"
       ref={ref}
     >
       <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-slate-100 blur-[80px] pointer-events-none" />

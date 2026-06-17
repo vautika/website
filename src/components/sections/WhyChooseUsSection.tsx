@@ -87,7 +87,7 @@ export default function WhyChooseUsSection() {
   const { ref, inView } = useInView(0.08)
 
   return (
-    <section className="section-padding bg-white relative overflow-hidden" ref={ref}>
+    <section className="section-padding bg-clinical-cream relative overflow-hidden" ref={ref}>
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-slate-50 blur-[80px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-accent-50/50 blur-[60px] pointer-events-none" />
 

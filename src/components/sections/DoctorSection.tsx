@@ -39,7 +39,7 @@ export default function DoctorSection() {
 
   return (
     <section
-      className="section-padding relative overflow-hidden bg-gradient-to-br from-[#FAFAF9] via-[#FAF8F5] to-[#F2F6F5]"
+      className="section-padding relative overflow-hidden bg-gradient-to-br from-clinical-slate to-clinical-slateMed"
       ref={ref}
     >
       <div className="container-custom relative">

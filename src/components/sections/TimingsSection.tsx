@@ -15,7 +15,7 @@ export default function TimingsSection() {
   const currentDay = new Date().toLocaleDateString('en-US', { weekday: 'long' })
 
   return (
-    <section className="section-padding bg-slate-50">
+    <section className="section-padding bg-clinical-sage">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           

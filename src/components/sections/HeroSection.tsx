@@ -41,12 +41,12 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#FAFAF9] via-[#FAF8F5] to-[#F2F6F5] pt-12 pb-20 md:py-28"
+      className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-clinical-slate to-clinical-slateMed pt-12 pb-20 md:py-28"
       aria-label="Hero"
       ref={heroRef}
     >
       {/* ── Abstract background curves for subtle luxury feel ── */}
-      <div className="absolute top-0 right-0 w-[45%] h-[90%] rounded-bl-[150px] bg-[#EBF1EF] opacity-40 -z-10" />
+      <div className="absolute top-0 right-0 w-[45%] h-[90%] rounded-bl-[150px] bg-clinical-sage opacity-50 -z-10" />
       <div className="absolute bottom-10 left-10 w-[200px] h-[200px] rounded-full bg-accent-100 opacity-30 blur-2xl -z-10" />
 
       <div className="container-custom relative z-10">

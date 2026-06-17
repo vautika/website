@@ -50,7 +50,7 @@ export default function FAQSection() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-clinical-cream">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div>
