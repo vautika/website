@@ -5,24 +5,32 @@ interface LogoProps {
 }
 
 export default function Logo({ className = 'h-12 w-auto', scrolled = true, variant = 'full' }: LogoProps) {
-  const textColor = scrolled ? '#1a1a2e' : '#ffffff'
-  const subTextColor = scrolled ? '#4F2D7F' : 'rgba(255,255,255,0.85)'
+  const isDark = !scrolled
 
   if (variant === 'icon') {
     return (
-      <svg className={className} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Vautika Logo">
-        <circle cx="24" cy="24" r="24" fill="#4F2D7F" />
-        <g transform="translate(12, 8)">
-          {/* Human figure */}
-          <circle cx="12" cy="4" r="3" fill="white" />
-          <path d="M12 7 L12 18" stroke="white" strokeWidth="2" strokeLinecap="round" />
-          <path d="M8 10 L16 10" stroke="white" strokeWidth="2" strokeLinecap="round" />
-          <path d="M12 18 L8 26" stroke="white" strokeWidth="2" strokeLinecap="round" />
-          <path d="M12 18 L16 26" stroke="white" strokeWidth="2" strokeLinecap="round" />
-          {/* Recovery arc */}
-          <path d="M3 16 Q12 8 21 16" stroke="#F59E0B" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-          <path d="M21 16 L19 12 M21 16 L23 13" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" />
-        </g>
+      <svg className={className} viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Vautika Logo">
+        <defs>
+          <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#3D1F7A" />
+            <stop offset="100%" stopColor="#0E7490" />
+          </linearGradient>
+          <filter id="iconGlow">
+            <feGaussianBlur stdDeviation="1.5" result="blur" />
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <rect width="56" height="56" rx="16" fill="url(#iconGrad)" />
+        <rect width="56" height="56" rx="16" fill="white" fillOpacity="0.05" />
+        {/* Human figure */}
+        <circle cx="28" cy="16" r="5" fill="white" filter="url(#iconGlow)" />
+        <path d="M28 21 L28 34" stroke="white" strokeWidth="3" strokeLinecap="round" />
+        <path d="M21 26 L35 26" stroke="white" strokeWidth="3" strokeLinecap="round" />
+        <path d="M28 34 L22 44" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M28 34 L34 44" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+        {/* Gold recovery arc */}
+        <path d="M13 29 Q28 17 43 29" stroke="#F4A300" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+        <polyline points="39,23 43,29 47,25" stroke="#F4A300" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
       </svg>
     )
   }
@@ -30,33 +38,66 @@ export default function Logo({ className = 'h-12 w-auto', scrolled = true, varia
   return (
     <svg
       className={className}
-      viewBox="0 0 280 56"
+      viewBox="0 0 300 60"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-label="Vautika Physiotherapy & Rehabilitation Centre"
     >
-      {/* Icon mark */}
-      <rect width="56" height="56" rx="14" fill="#4F2D7F" />
-      {/* Human figure */}
-      <circle cx="28" cy="11" r="4.5" fill="white" />
-      <path d="M28 15.5 L28 30" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-      <path d="M22 21 L34 21" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-      <path d="M28 30 L22 42" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-      <path d="M28 30 L34 42" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-      {/* Recovery/healing arc */}
-      <path d="M14 27 Q28 17 42 27" stroke="#F59E0B" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-      <polyline points="39,22 42,27 46,24" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      <defs>
+        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#3D1F7A" />
+          <stop offset="100%" stopColor="#0E7490" />
+        </linearGradient>
+        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#F4A300" />
+          <stop offset="50%" stopColor="#FFD700" />
+          <stop offset="100%" stopColor="#F4A300" />
+        </linearGradient>
+        <filter id="logoGlow">
+          <feGaussianBlur stdDeviation="0.8" result="blur" />
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
 
-      {/* Text: VAUTIKA */}
-      <text x="68" y="24" fontFamily="Poppins, sans-serif" fontSize="20" fontWeight="800" fill={textColor} letterSpacing="1.5">
+      {/* Icon mark — rounded square */}
+      <rect width="60" height="60" rx="16" fill="url(#logoGrad)" />
+      <rect width="60" height="60" rx="16" fill="white" fillOpacity="0.06" />
+
+      {/* Human figure */}
+      <circle cx="30" cy="16" r="5.5" fill="white" filter="url(#logoGlow)" />
+      <path d="M30 22 L30 36" stroke="white" strokeWidth="3" strokeLinecap="round" />
+      <path d="M22 27 L38 27" stroke="white" strokeWidth="3" strokeLinecap="round" />
+      <path d="M30 36 L23 47" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M30 36 L37 47" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+
+      {/* Gold recovery arc + arrow */}
+      <path d="M14 31 Q30 18 46 31" stroke="url(#goldGrad)" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+      <polyline points="42,24 46,31 51,27" stroke="#F4A300" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+
+      {/* Brand name: VAUTIKA */}
+      <text
+        x="72" y="26"
+        fontFamily="Poppins, sans-serif"
+        fontSize="22"
+        fontWeight="800"
+        fill={isDark ? '#ffffff' : '#1a0a3e'}
+        letterSpacing="2"
+      >
         VAUTIKA
       </text>
 
-      {/* Teal underline accent */}
-      <rect x="68" y="28" width="120" height="2" rx="1" fill="#0F766E" />
+      {/* Gold underline */}
+      <rect x="72" y="31" width="126" height="2.5" rx="1.25" fill="url(#goldGrad)" />
 
       {/* Subtitle */}
-      <text x="68" y="42" fontFamily="Poppins, sans-serif" fontSize="9.5" fontWeight="500" fill={subTextColor} letterSpacing="3.5">
+      <text
+        x="72" y="46"
+        fontFamily="Poppins, sans-serif"
+        fontSize="9"
+        fontWeight="600"
+        fill={isDark ? 'rgba(255,255,255,0.75)' : '#3D1F7A'}
+        letterSpacing="3.5"
+      >
         PHYSIOTHERAPY &amp; REHABILITATION
       </text>
     </svg>
