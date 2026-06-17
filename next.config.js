@@ -7,9 +7,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  experimental: {
-    optimizePackageImports: ['lucide-react'],
-  },
 }
 
 module.exports = nextConfig

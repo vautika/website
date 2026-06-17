@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { Phone, MapPin, Calendar, Shield, Star, ChevronDown, Sparkles, Award } from 'lucide-react'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type CSSProperties } from 'react'
 
 // Scroll-reveal hook
 function useInView(threshold = 0.15) {
@@ -39,7 +39,7 @@ function Counter({ target, suffix = '' }: { target: number; suffix?: string }) {
 }
 
 // Particle component
-function Particle({ style }: { style: React.CSSProperties }) {
+function Particle({ style }: { style: CSSProperties }) {
   return (
     <div
       className="absolute rounded-full bg-white/20 animate-particle"

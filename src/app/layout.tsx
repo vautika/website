@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import type React from 'react'
 import { Inter, Poppins } from 'next/font/google'
 import '../styles/globals.css'
 import Header from '@/components/layout/Header'
