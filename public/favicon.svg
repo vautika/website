@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <rect width="48" height="48" rx="12" fill="#4F2D7F"/>
+  <!-- Human figure -->
+  <circle cx="24" cy="11" r="5" fill="white"/>
+  <rect x="21" y="16" width="6" height="14" rx="3" fill="white"/>
+  <!-- Arms -->
+  <rect x="13" y="19" width="8" height="4" rx="2" fill="white"/>
+  <rect x="27" y="19" width="8" height="4" rx="2" fill="white"/>
+  <!-- Legs -->
+  <rect x="19" y="29" width="4" height="10" rx="2" fill="white"/>
+  <rect x="25" y="29" width="4" height="10" rx="2" fill="white"/>
+  <!-- Recovery arc -->
+  <path d="M10 22 Q24 12 38 22" stroke="#F59E0B" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <polyline points="35,17 38,22 42,19" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
