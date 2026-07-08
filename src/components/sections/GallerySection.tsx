@@ -226,24 +226,19 @@ export default function GallerySection() {
                 onClick={() => setLightboxIndex(index)}
                 className="w-[280px] md:w-[320px] shrink-0 bg-white rounded-3xl border border-stone-200/60 shadow-elegant overflow-hidden snap-start group/item cursor-pointer hover:shadow-premium hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="relative h-64 overflow-hidden bg-slate-100">
+                <div className="relative aspect-square overflow-hidden bg-slate-100">
                   <Image
                     src={item.src}
-                    alt={item.title}
+                    alt=""
                     fill
                     sizes="(max-width: 768px) 280px, 320px"
-                    className="object-cover group-hover/item:scale-105 transition-transform duration-500"
+                    className="object-contain group-hover/item:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-black/35 opacity-0 group-hover/item:opacity-100 transition-opacity flex items-center justify-center">
                     <span className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white">
                       <Maximize2 className="w-5 h-5" />
                     </span>
                   </div>
-                </div>
-                <div className="p-5">
-                  <h3 className="font-display font-bold text-primary-900 text-sm md:text-base truncate">
-                    {item.title}
-                  </h3>
                 </div>
               </div>
             ))}
@@ -295,7 +290,7 @@ export default function GallerySection() {
             <div className="relative w-full max-w-4xl h-[55vh] md:h-[70vh]">
               <Image
                 src={galleryItems[lightboxIndex].src}
-                alt={galleryItems[lightboxIndex].title}
+                alt=""
                 fill
                 sizes="(max-width: 1200px) 100vw, 1200px"
                 className="object-contain"
@@ -315,9 +310,6 @@ export default function GallerySection() {
 
           {/* Description Footer */}
           <div className="text-center text-white max-w-2xl mx-auto space-y-2">
-            <h3 className="font-display font-bold text-lg md:text-xl">
-              {galleryItems[lightboxIndex].title}
-            </h3>
             <span className="inline-block text-[10px] text-slate-500 pt-2 font-mono">
               {lightboxIndex + 1} of {galleryItems.length}
             </span>
