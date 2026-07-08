@@ -21,14 +21,15 @@ export default function Logo({ className = 'h-12 w-auto', theme = 'light', varia
   }
 
   return (
-    <Image
-      src="/images/logo.png"
-      alt="Vautika Physiotherapy & Rehabilitation Centre"
-      width={240}
-      height={60}
-      className={className}
-      style={theme === 'dark' ? { filter: 'brightness(0) invert(1)' } : undefined}
-      priority
-    />
+    <div className={className} style={{ width: '160px', height: '40px', position: 'relative' }}>
+      <Image
+        src="/images/logo.png"
+        alt="Vautika Physiotherapy & Rehabilitation Centre"
+        fill
+        className="object-contain"
+        style={theme === 'dark' ? { filter: 'brightness(0) invert(1)' } : undefined}
+        priority
+      />
+    </div>
   )
 }
