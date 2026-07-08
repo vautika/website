@@ -17,133 +17,133 @@ const galleryItems: GalleryItem[] = [
   {
     id: 3,
     src: '/images/gallery/gallery-3.jpg',
-    title: 'Odisha State Physiotherapy Conference Committee',
+    title: 'Odisha State Committee Delegates',
     category: 'event',
-    desc: 'Meeting with healthcare delegates and delegates at conference'
+    desc: 'Dr. Satya Mohanty being honored by committee members at state meet'
   },
   {
     id: 4,
     src: '/images/gallery/gallery-4.jpg',
-    title: 'Field Rehabilitation Session',
-    category: 'treatment',
-    desc: 'On-field injury management for athletes during sports events'
+    title: 'Sports Rehabilitation Event',
+    category: 'event',
+    desc: 'On-site immediate athletic assistance during football tournaments'
   },
   {
     id: 5,
     src: '/images/gallery/gallery-5.jpg',
-    title: 'Clinical Team Meeting',
-    category: 'clinic',
-    desc: 'Vautika staff planning advanced neuro and ortho rehab programs'
+    title: 'Clinical Discussion',
+    category: 'event',
+    desc: 'Healthcare delegates analyzing physical therapy standards'
   },
   {
     id: 6,
     src: '/images/gallery/gallery-6.jpg',
-    title: 'Odisha Football Association Rehab Team',
+    title: 'Odisha Football League Support',
     category: 'event',
-    desc: 'Vautika team providing physical therapy services for Odisha state team'
+    desc: 'Vautika providing complete sports physio coverage for players'
   },
   {
     id: 7,
     src: '/images/gallery/gallery-7.jpg',
-    title: 'State Football Championship Medical Crew',
+    title: 'Championship Medical Assistance',
     category: 'event',
-    desc: 'On-site medical and sports rehab assistance for tournaments'
+    desc: 'Vautika team on standby for tournament medical care'
   },
   {
     id: 8,
     src: '/images/gallery/gallery-8.jpg',
-    title: 'Post-Surgery Knee Rehabilitation',
+    title: 'Spinal Extension Mobilization',
     category: 'treatment',
-    desc: 'Restoring knee range of motion and joint stability'
+    desc: 'Manual therapy and traction to align vertebrae for back pain relief'
   },
   {
     id: 9,
     src: '/images/gallery/gallery-9.jpg',
-    title: 'Cervical Traction & Neck Therapy',
+    title: 'Passive Joint Mobilization',
     category: 'treatment',
-    desc: 'Hands-on cervical spine mobilization for neck pain relief'
+    desc: 'Spine decompression therapy for cervical pain relief'
   },
   {
     id: 10,
     src: '/images/gallery/gallery-10.jpg',
-    title: 'Manual Spinal Mobilization',
+    title: 'Neuromuscular Stretching',
     category: 'treatment',
-    desc: 'Advanced manipulative therapy for chronic lower back pain'
+    desc: 'Active stretching exercises to regain range of motion in the leg'
   },
   {
     id: 11,
     src: '/images/gallery/gallery-11.jpg',
-    title: 'Shoulder Impingement Therapy',
-    category: 'treatment',
-    desc: 'Strengthening rotator cuff muscles using premium resistance equipment'
+    title: 'Medical Felicitation Ceremony',
+    category: 'event',
+    desc: 'Dr. Satya Mohanty receiving recognition plaque at medical assembly'
   },
   {
     id: 12,
     src: '/images/gallery/gallery-12.jpg',
-    title: 'Electrotherapy Pain Management',
-    category: 'treatment',
-    desc: 'Applying modalities to block localized pain receptors'
+    title: 'Felicitation Certificate Presentation',
+    category: 'event',
+    desc: 'Dr. Satya Mohanty holding recognition certificate at medical event'
   },
   {
     id: 13,
     src: '/images/gallery/gallery-13.jpg',
-    title: 'Neurological Balance Training',
+    title: 'Therapist Guided Leg Exercises',
     category: 'treatment',
-    desc: 'Re-educating neuromuscular pathways for stroke recovery'
+    desc: 'Rehabilitation exercises for orthopedic patients'
   },
   {
     id: 14,
     src: '/images/gallery/gallery-14.jpg',
-    title: 'State Physiotherapists Meet',
+    title: 'State Physiotherapy Meet Gathering',
     category: 'event',
-    desc: 'Dr. Satya Mohanty greeting senior healthcare committee members'
+    desc: 'Physiotherapists gathering for awareness campaigns'
   },
   {
     id: 15,
     src: '/images/gallery/gallery-15.jpg',
-    title: 'Physiotherapy Awareness Committee',
+    title: 'Tournament On-field Assistance',
     category: 'event',
-    desc: 'Delegates gathering to promote physical health and preventive care'
+    desc: 'Treating acute hamstring injuries on the playground'
   },
   {
     id: 16,
     src: '/images/gallery/gallery-16.jpg',
-    title: 'Advanced Electro-Physical Therapy',
+    title: 'Ultrasonic Soft Tissue Healing',
     category: 'treatment',
-    desc: 'Using high-end clinical apparatus for joint pain treatment'
+    desc: 'Stimulating collagen fibers and relieving muscular stiffness'
   },
   {
     id: 17,
     src: '/images/gallery/gallery-17.jpg',
-    title: 'Vautika Clinic Nayapalli Reception',
-    category: 'clinic',
-    desc: 'Warm and welcoming desk at our Nayapalli center'
+    title: 'Clinic Reception Desk',
+    category: 'treatment',
+    desc: 'Welcoming consultation desk at Vautika Physiotherapy center'
   },
   {
     id: 18,
     src: '/images/gallery/gallery-18.jpg',
-    title: 'Therapeutic Ultrasound Treatment',
+    title: 'Electrical Muscle Stimulation (EMS)',
     category: 'treatment',
-    desc: 'Promoting deep tissue blood flow and muscle repair'
+    desc: 'Applying transcutaneous nerve stimulation to block localized pain receptors'
   },
   {
     id: 19,
     src: '/images/gallery/gallery-19.jpg',
-    title: 'Active Patient Rehabilitation',
+    title: 'Guided Knee Flexion Rehab',
     category: 'treatment',
-    desc: 'Step-by-step guidance for returning to daily activities safely'
+    desc: 'Step-by-step joint rehabilitation for chronic arthritis pain'
   },
   {
     id: 20,
     src: '/images/gallery/gallery-20.jpg',
-    title: 'Vautika Clinical Setup',
-    category: 'clinic',
-    desc: 'Hygienic, fully-equipped medical beds and apparatus'
+    title: 'Ultrasound Therapy Session',
+    category: 'treatment',
+    desc: 'Advanced electrophysical modalities for faster tendon healing'
   },
   {
     id: 21,
     src: '/images/gallery/gallery-21.jpg',
-    title: 'Dr. Satya Mohanty with Delegates',
+    title: 'Healthcare Delegates Convention',
     category: 'event',
     desc: 'Presenting research developments at the Odisha State Meet'
   }
@@ -152,8 +152,7 @@ const galleryItems: GalleryItem[] = [
 const CATEGORIES = [
   { id: 'all', label: 'All Photos' },
   { id: 'treatment', label: 'Treatments & Rehab' },
-  { id: 'clinic', label: 'Our Clinic' },
-  { id: 'event', label: 'Events & Conferences' }
+  { id: 'event', label: 'Sports & State Events' }
 ]
 
 export default function GallerySection() {
