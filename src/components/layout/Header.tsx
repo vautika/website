@@ -98,7 +98,7 @@ export default function Header() {
       >
         <div className="container-custom">
           <div className={`flex items-center justify-between transition-all duration-500 ${
-            scrolled ? 'h-32' : 'h-40'
+            scrolled ? 'h-16' : 'h-20'
           }`}>
             {/* Logo */}
             <Link
@@ -106,8 +106,8 @@ export default function Header() {
               aria-label="Vautika Physiotherapy Home"
               className="shrink-0 transition-all duration-500 block"
               style={{
-                width: scrolled ? '500px' : '600px',
-                height: scrolled ? '125px' : '150px',
+                width: scrolled ? '170px' : '200px',
+                height: scrolled ? '48px' : '56px',
               }}
             >
               <Logo
