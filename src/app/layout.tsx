@@ -115,13 +115,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${jakarta.variable} ${playfair.variable}`} suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+        <link rel="icon" href="/images/logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/images/logo.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="geo.region" content="IN-OR" />
         <meta name="geo.placename" content="Bhubaneswar, Odisha, India" />
-        <meta name="geo.position" content="20.2961;85.8189" />
-        <meta name="ICBM" content="20.2961, 85.8189" />
+        <meta name="geo.position" content="20.2916746;85.8085293" />
+        <meta name="ICBM" content="20.2916746, 85.8085293" />
       </head>
       <body className="min-h-screen flex flex-col antialiased">
         {/* Google Analytics */}
