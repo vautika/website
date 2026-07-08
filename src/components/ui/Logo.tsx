@@ -21,12 +21,12 @@ export default function Logo({ className = 'h-12 w-auto', theme = 'light', varia
   }
 
   return (
-    <div className={className} style={{ width: '160px', height: '40px', position: 'relative' }}>
+    <div style={{ width: '220px', height: '55px', position: 'relative' }} className={className}>
       <Image
         src="/images/logo.png"
         alt="Vautika Physiotherapy & Rehabilitation Centre"
         fill
-        className="object-contain"
+        className="object-contain object-left"
         style={theme === 'dark' ? { filter: 'brightness(0) invert(1)' } : undefined}
         priority
       />
