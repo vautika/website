@@ -21,7 +21,7 @@ export default function Logo({ className = 'h-12 w-auto', theme = 'light', varia
   }
 
   return (
-    <div style={{ width: '220px', height: '55px', position: 'relative' }} className={className}>
+    <div style={{ position: 'relative' }} className={`w-[220px] h-[55px] ${className}`}>
       <Image
         src="/images/logo.png"
         alt="Vautika Physiotherapy & Rehabilitation Centre"
