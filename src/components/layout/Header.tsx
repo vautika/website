@@ -107,6 +107,7 @@ export default function Header() {
               className="shrink-0 transition-transform duration-300 hover:scale-105"
             >
               <Logo
+                className={`transition-all duration-500 ${scrolled ? '!h-[42px] !w-[168px]' : '!h-[52px] !w-[208px]'}`}
                 theme="light"
               />
             </Link>
