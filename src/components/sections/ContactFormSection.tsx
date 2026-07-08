@@ -5,7 +5,7 @@ import { Send, MessageCircle, Phone, CheckCircle2, User, PhoneCall, FileText } f
 
 // ─── IMPORTANT: Replace this with your deployed Google Apps Script Web App URL ───
 // Instructions: see README in /docs/google-sheets-setup.md
-const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec'
+const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzChHG7_vJPtdbXnf6ZBuml_W7GRycp01vssVomOAmBgXbvshAFZix1eR4GFdJcmsU6/exec'
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
 

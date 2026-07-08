@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { X, MessageCircle, Phone, Send, CheckCircle2, User, PhoneCall } from 'lucide-react'
 
 // ─── Replace with your deployed Google Apps Script Web App URL ───
-const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec'
+const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzChHG7_vJPtdbXnf6ZBuml_W7GRycp01vssVomOAmBgXbvshAFZix1eR4GFdJcmsU6/exec'
 
 const POPUP_DELAY_MS = 25000 // Show after 25 seconds
 const POPUP_COOLDOWN_DAYS = 3 // Don't show again for 3 days
