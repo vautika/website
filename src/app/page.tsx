@@ -9,6 +9,7 @@ import TestimonialsSection from '@/components/sections/TestimonialsSection'
 import TimingsSection from '@/components/sections/TimingsSection'
 import FAQSection from '@/components/sections/FAQSection'
 import ContactFormSection from '@/components/sections/ContactFormSection'
+import GallerySection from '@/components/sections/GallerySection'
 
 export const metadata: Metadata = {
   title: 'Best Physiotherapy Clinic in Bhubaneswar | Vautika Physiotherapy',
@@ -61,6 +62,9 @@ export default function HomePage() {
       <ConditionsSection />
       <BeforeAfterSection />
       <TestimonialsSection />
+
+      {/* Gallery Section */}
+      <GallerySection />
 
       {/* Mid-page Contact Form — before FAQ */}
       <section className="py-12 bg-white">
