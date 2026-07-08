@@ -15,20 +15,6 @@ interface GalleryItem {
 // 21 items copied from Downloads folder
 const galleryItems: GalleryItem[] = [
   {
-    id: 1,
-    src: '/images/gallery/gallery-1.jpg',
-    title: 'Clinic Consultation Room',
-    category: 'clinic',
-    desc: 'Our modern, comfortable outpatient evaluation area'
-  },
-  {
-    id: 2,
-    src: '/images/gallery/gallery-2.jpg',
-    title: 'Odisha Physiotherapy Day Presentation',
-    category: 'event',
-    desc: 'Dr. Satya Mohanty speaking on advanced rehab on World Physiotherapy Day'
-  },
-  {
     id: 3,
     src: '/images/gallery/gallery-3.jpg',
     title: 'Odisha State Physiotherapy Conference Committee',
