@@ -241,12 +241,9 @@ export default function GallerySection() {
                   </div>
                 </div>
                 <div className="p-5">
-                  <h3 className="font-display font-bold text-primary-900 text-sm md:text-base truncate mb-1">
+                  <h3 className="font-display font-bold text-primary-900 text-sm md:text-base truncate">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
-                    {item.desc}
-                  </p>
                 </div>
               </div>
             ))}
@@ -321,9 +318,6 @@ export default function GallerySection() {
             <h3 className="font-display font-bold text-lg md:text-xl">
               {galleryItems[lightboxIndex].title}
             </h3>
-            <p className="text-xs md:text-sm text-slate-400">
-              {galleryItems[lightboxIndex].desc}
-            </p>
             <span className="inline-block text-[10px] text-slate-500 pt-2 font-mono">
               {lightboxIndex + 1} of {galleryItems.length}
             </span>
