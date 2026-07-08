@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react'
 import { Calendar, Clock, ArrowRight, PenLine, CheckCircle, XCircle, EyeOff, Send, Lock, Trash2, Shield } from 'lucide-react'
 import Link from 'next/link'
-
+import { db } from '@/lib/firebase'
+import { collection, addDoc, getDocs, updateDoc, deleteDoc, doc, query, orderBy } from 'firebase/firestore'
 
 type BlogPost = {
   id: string
@@ -104,7 +105,11 @@ const CATEGORIES = ['All', 'Back Pain', 'Sports Rehab', 'Knee Pain', 'Rehabilita
 const ADMIN_PASSWORD = 'vautika2024'
 
 function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })
+  try {
+    return new Date(dateStr).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })
+  } catch {
+    return dateStr
+  }
 }
 
 export default function BlogPage() {
@@ -125,28 +130,42 @@ export default function BlogPage() {
     content: '',
   })
 
-  // Load from localStorage
+  // Load from Firebase
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem('vautika_blog_posts')
-      if (saved) {
-        const parsed = JSON.parse(saved) as BlogPost[]
-        setPosts([...initialPosts, ...parsed])
+    async function loadPosts() {
+      try {
+        const qSnap = await getDocs(query(collection(db, 'blog_posts'), orderBy('date', 'desc')))
+        const dbPosts: BlogPost[] = []
+        qSnap.forEach((doc) => {
+          const data = doc.data()
+          dbPosts.push({
+            id: doc.id,
+            slug: data.slug || '',
+            title: data.title || '',
+            excerpt: data.excerpt || '',
+            category: data.category || '',
+            date: data.date || '',
+            readTime: data.readTime || '',
+            emoji: data.emoji || '',
+            author: data.author || '',
+            status: data.status || 'pending',
+            isStaff: false,
+          })
+        })
+        // Staff/Initial posts are hardcoded and loaded first, then firebase user-submitted posts
+        setPosts([...initialPosts, ...dbPosts])
+      } catch (err) {
+        console.error('Firebase load error: ', err)
       }
-    } catch {}
+    }
+    loadPosts()
   }, [])
 
-  const saveToStorage = (all: BlogPost[]) => {
-    const userPosts = all.filter(p => !p.isStaff)
-    localStorage.setItem('vautika_blog_posts', JSON.stringify(userPosts))
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!form.title.trim() || !form.excerpt.trim() || !form.author.trim()) return
 
-    const newPost: BlogPost = {
-      id: Date.now().toString(),
+    const newPostData = {
       slug: form.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, ''),
       title: form.title,
       excerpt: form.excerpt,
@@ -156,34 +175,55 @@ export default function BlogPage() {
       emoji: form.emoji,
       author: form.author,
       status: 'pending',
-      isStaff: false,
     }
 
-    const updated = [...posts, newPost]
-    setPosts(updated)
-    saveToStorage(updated)
-    setForm({ title: '', excerpt: '', category: 'General Health', author: '', emoji: '✍️', content: '' })
-    setShowForm(false)
-    setSubmitSuccess(true)
-    setTimeout(() => setSubmitSuccess(false), 5000)
+    try {
+      // Add document to Firebase Firestore
+      const docRef = await addDoc(collection(db, 'blog_posts'), newPostData)
+      const newPost: BlogPost = {
+        id: docRef.id,
+        ...newPostData,
+        status: 'pending',
+        isStaff: false,
+      }
+      setPosts(prev => [...prev, newPost])
+      setForm({ title: '', excerpt: '', category: 'General Health', author: '', emoji: '✍️', content: '' })
+      setShowForm(false)
+      setSubmitSuccess(true)
+      setTimeout(() => setSubmitSuccess(false), 5000)
+    } catch (err) {
+      console.error('Error adding post to Firebase: ', err)
+    }
   }
 
-  const handleApprove = (id: string) => {
-    const updated = posts.map(p => p.id === id ? { ...p, status: 'approved' as const } : p)
-    setPosts(updated)
-    saveToStorage(updated)
+  const handleApprove = async (id: string) => {
+    try {
+      const docRef = doc(db, 'blog_posts', id)
+      await updateDoc(docRef, { status: 'approved' })
+      setPosts(prev => prev.map(p => p.id === id ? { ...p, status: 'approved' as const } : p))
+    } catch (err) {
+      console.error('Error approving document: ', err)
+    }
   }
 
-  const handleReject = (id: string) => {
-    const updated = posts.map(p => p.id === id ? { ...p, status: 'rejected' as const } : p)
-    setPosts(updated)
-    saveToStorage(updated)
+  const handleReject = async (id: string) => {
+    try {
+      const docRef = doc(db, 'blog_posts', id)
+      await updateDoc(docRef, { status: 'rejected' })
+      setPosts(prev => prev.map(p => p.id === id ? { ...p, status: 'rejected' as const } : p))
+    } catch (err) {
+      console.error('Error rejecting document: ', err)
+    }
   }
 
-  const handleDelete = (id: string) => {
-    const updated = posts.filter(p => p.id !== id)
-    setPosts(updated)
-    saveToStorage(updated)
+  const handleDelete = async (id: string) => {
+    try {
+      const docRef = doc(db, 'blog_posts', id)
+      await deleteDoc(docRef)
+      setPosts(prev => prev.filter(p => p.id !== id))
+    } catch (err) {
+      console.error('Error deleting document: ', err)
+    }
   }
 
   const handleAdminLogin = () => {
