@@ -2,7 +2,8 @@
 
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
-import { Phone, Mail, MapPin, Clock, ArrowRight, Heart, Calendar } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock, ArrowRight, Heart, Calendar, MessageCircle, Instagram } from 'lucide-react'
+
 import Logo from '@/components/ui/Logo'
 
 function useInView(threshold = 0.05) {
@@ -23,8 +24,8 @@ function useInView(threshold = 0.05) {
 const services = [
   'Orthopedic Rehabilitation', 'Neuro Rehabilitation',
   'Sports Rehabilitation', 'Pain Management',
-  'Pediatric Rehabilitation', 'Manual Therapy',
-  'Laser Therapy', 'Cupping Therapy',
+  'Home Based Physiotherapy', 'One on One Virtual Rehab',
+  'Manual Therapy', 'Laser Therapy',
 ]
 
 const quickLinks = [
@@ -34,6 +35,8 @@ const quickLinks = [
   { label: 'Our Therapies', href: '/therapies/' },
   { label: 'Book Appointment', href: '/appointment/' },
   { label: 'Blog', href: '/blog/' },
+  { label: 'FAQ', href: '/faq/' },
+  { label: 'Dr Profiles', href: '/dr-profiles/' },
   { label: 'Contact Us', href: '/contact/' },
   { label: 'Privacy Policy', href: '/privacy/' },
 ]
@@ -106,7 +109,7 @@ export default function Footer() {
 
         <div className="container-custom relative py-16 md:py-20">
           <div
-            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 transition-all duration-1000 ${
+            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 transition-all duration-1000 ${
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
@@ -153,6 +156,39 @@ export default function Footer() {
                   </div>
                 </div>
               </div>
+
+              {/* Social Links */}
+              <div>
+                <p className="text-xs font-bold text-white/50 uppercase tracking-widest mb-3">Follow &amp; Connect</p>
+                <div className="flex items-center gap-3">
+                  <a
+                    href="https://www.instagram.com/vautika.info/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Follow on Instagram"
+                    className="w-9 h-9 rounded-lg flex items-center justify-center text-white hover:scale-110 transition-all duration-300"
+                    style={{ background: 'linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)' }}
+                  >
+                    <Instagram className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://wa.me/917381455744?text=Hello%20Vautika%20Physiotherapy%2C%20I%20would%20like%20to%20know%20more."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp"
+                    className="w-9 h-9 rounded-lg bg-green-600 flex items-center justify-center text-white hover:bg-green-500 hover:scale-110 transition-all duration-300"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="tel:+917381455744"
+                    aria-label="Call us"
+                    className="w-9 h-9 rounded-lg bg-white/10 border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/20 hover:scale-110 transition-all duration-300"
+                  >
+                    <Phone className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* Column 2: Quick Links */}
@@ -175,28 +211,27 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Column 3: Services */}
-            <div>
-              <h3 className="font-sans font-bold text-white text-xs uppercase tracking-widest mb-6">
-                Our Services
-              </h3>
-              <ul className="space-y-2.5">
-                {services.map((service) => (
-                  <li key={service}>
-                    <Link
-                      href="/services/"
-                      className="flex items-center gap-2 text-sm text-slate-400 hover:text-accent-400 transition-all duration-200 group"
-                    >
-                      <ArrowRight className="w-3 h-3 text-accent-500 -translate-x-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                      {service}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Column 4: Conditions & Certs */}
+            {/* Column 3: Services + Conditions */}
             <div className="space-y-8">
+              <div>
+                <h3 className="font-sans font-bold text-white text-xs uppercase tracking-widest mb-6">
+                  Our Services
+                </h3>
+                <ul className="space-y-2.5">
+                  {services.map((service) => (
+                    <li key={service}>
+                      <Link
+                        href="/services/"
+                        className="flex items-center gap-2 text-sm text-slate-400 hover:text-accent-400 transition-all duration-200 group"
+                      >
+                        <ArrowRight className="w-3 h-3 text-accent-500 -translate-x-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                        {service}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               <div>
                 <h3 className="font-sans font-bold text-white text-xs uppercase tracking-widest mb-4">
                   Conditions Treated
@@ -212,24 +247,11 @@ export default function Footer() {
                   ))}
                 </div>
               </div>
-
-              <div>
-                <h3 className="font-sans font-bold text-white text-xs uppercase tracking-widest mb-3">
-                  Certifications
-                </h3>
-                <div className="space-y-1.5 text-xs text-slate-400">
-                  {['MPT – Musculoskeletal Specialist', 'FIFA Sports Medicine Diploma', 'Evidence Based Clinical Care'].map((cert) => (
-                    <div key={cert} className="flex items-center gap-2">
-                      <span className="w-1 h-1 rounded-full bg-accent-500 shrink-0" />
-                      <span>{cert}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
 
           </div>
         </div>
+
 
         {/* Bottom bar */}
         <div className="border-t border-slate-800/60">

@@ -3,8 +3,8 @@
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import {
-  Bone, Brain, Baby, Trophy, Zap, Heart,
-  Hand, Activity, Sparkles, Wind, Syringe, Dumbbell, ArrowRight
+  Bone, Brain, Trophy, Zap, Heart,
+  Hand, Activity, Sparkles, Wind, Syringe, Dumbbell, ArrowRight, Home, Wifi
 } from 'lucide-react'
 
 function useInView(threshold = 0.1) {
@@ -28,109 +28,152 @@ const services = [
     title: 'Orthopedic Rehabilitation',
     description: 'Comprehensive treatment for bone, joint & muscle injuries to restore full function and mobility.',
     accent: '#BCA374',
+    highlight: false,
   },
   {
     icon: Brain,
     title: 'Neuro Rehabilitation',
     description: 'Specialized therapy for stroke, Parkinson\'s, and spinal cord injuries.',
     accent: '#1E3F3B',
+    highlight: false,
   },
   {
-    icon: Baby,
-    title: 'Pediatric Rehabilitation',
-    description: 'Gentle, child-friendly therapy for developmental delays and pediatric conditions.',
+    icon: Home,
+    title: 'Home Based Physiotherapy',
+    description: 'Our physiotherapist visits your home — perfect for post-surgery recovery, elderly care, and those with mobility limitations.',
     accent: '#BCA374',
+    highlight: true,
+  },
+  {
+    icon: Wifi,
+    title: 'One on One Virtual Rehabilitation',
+    description: 'Personalized online physiotherapy sessions via video call — expert care from anywhere, anytime.',
+    accent: '#1E3F3B',
+    highlight: true,
   },
   {
     icon: Trophy,
     title: 'Sports Rehabilitation',
     description: 'Advanced sports injury treatment & performance enhancement for athletes.',
-    accent: '#1E3F3B',
+    accent: '#BCA374',
+    highlight: false,
   },
   {
     icon: Zap,
     title: 'Pain Management',
     description: 'Evidence-based techniques to address chronic and acute pain for lasting relief.',
-    accent: '#BCA374',
+    accent: '#1E3F3B',
+    highlight: false,
   },
   {
     icon: Heart,
     title: 'Lifestyle Counseling',
     description: 'Holistic guidance on posture, ergonomics, exercise & long-term wellness.',
-    accent: '#1E3F3B',
+    accent: '#BCA374',
+    highlight: false,
   },
   {
     icon: Hand,
     title: 'Manual Therapy',
     description: 'Hands-on joint mobilization and soft tissue manipulation techniques.',
-    accent: '#BCA374',
+    accent: '#1E3F3B',
+    highlight: false,
   },
   {
     icon: Activity,
     title: 'Electro Therapy',
     description: 'Advanced TENS, IFT & ultrasound modalities for pain relief and healing.',
-    accent: '#1E3F3B',
+    accent: '#BCA374',
+    highlight: false,
   },
   {
     icon: Sparkles,
     title: 'Laser Therapy',
     description: 'Low-level laser for pain reduction, inflammation control & tissue repair.',
-    accent: '#BCA374',
+    accent: '#1E3F3B',
+    highlight: false,
   },
   {
     icon: Wind,
     title: 'Cupping Therapy',
     description: 'Traditional cupping to improve circulation and relieve muscle tension.',
-    accent: '#1E3F3B',
+    accent: '#BCA374',
+    highlight: false,
   },
   {
     icon: Syringe,
     title: 'Needling Therapy',
     description: 'Dry needling & acupuncture to release trigger points and reduce pain.',
-    accent: '#BCA374',
+    accent: '#1E3F3B',
+    highlight: false,
   },
   {
     icon: Dumbbell,
     title: 'Sports Specific Training',
     description: 'Customized training programs to enhance performance and prevent injuries.',
-    accent: '#1E3F3B',
+    accent: '#BCA374',
+    highlight: false,
   },
 ]
 
 function ServiceCard({
-  icon: Icon, title, description, accent, index, inView
+  icon: Icon, title, description, accent, index, inView, highlight
 }: typeof services[0] & { index: number; inView: boolean }) {
   return (
     <Link
       href="/services/"
-      className={`group relative flex flex-col p-6 rounded-2xl bg-white border border-stone-200/60 overflow-hidden cursor-pointer transition-all duration-500 hover:shadow-card-hover hover:-translate-y-1 ${
+      className={`group relative flex flex-col p-6 rounded-2xl border overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-1 ${
+        highlight
+          ? 'bg-primary-900 border-primary-800 shadow-lg hover:shadow-xl'
+          : 'bg-white border-stone-200/60 hover:shadow-card-hover'
+      } ${
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
       }`}
       style={{
         transitionDelay: inView ? `${index * 40}ms` : '0ms',
       }}
     >
+      {highlight && (
+        <div className="absolute top-3 right-3">
+          <span className="text-[10px] font-bold bg-accent-500 text-primary-900 px-2 py-0.5 rounded-full uppercase tracking-wider">
+            New
+          </span>
+        </div>
+      )}
+
       {/* Top Gold Border Accent */}
       <div
-        className="absolute top-0 left-0 right-0 h-1 bg-accent-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+        className={`absolute top-0 left-0 right-0 h-1 bg-accent-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}
       />
 
       {/* Icon frame */}
-      <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-[#1E3F3B]/5">
-        <Icon className="w-5 h-5 text-[#1E3F3B] group-hover:text-accent-600 transition-colors" />
+      <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-colors duration-300 ${
+        highlight ? 'bg-white/10 group-hover:bg-white/20' : 'bg-slate-50 group-hover:bg-[#1E3F3B]/5'
+      }`}>
+        <Icon className={`w-5 h-5 transition-colors ${
+          highlight ? 'text-accent-400' : 'text-[#1E3F3B] group-hover:text-accent-600'
+        }`} />
       </div>
 
       {/* Content */}
-      <h3 className="font-display font-bold text-primary-900 text-base mb-2.5 leading-snug">
+      <h3 className={`font-display font-bold text-base mb-2.5 leading-snug ${
+        highlight ? 'text-white' : 'text-primary-900'
+      }`}>
         {title}
       </h3>
       
-      <p className="text-slate-500 text-xs leading-relaxed flex-1">
+      <p className={`text-xs leading-relaxed flex-1 ${
+        highlight ? 'text-white/70' : 'text-slate-500'
+      }`}>
         {description}
       </p>
 
       {/* Action link */}
-      <div className="flex items-center gap-1.5 mt-5 text-xs font-bold font-sans tracking-wider uppercase text-slate-400 group-hover:text-primary-900 transition-colors duration-300">
+      <div className={`flex items-center gap-1.5 mt-5 text-xs font-bold font-sans tracking-wider uppercase transition-colors duration-300 ${
+        highlight
+          ? 'text-accent-400 group-hover:text-accent-300'
+          : 'text-slate-400 group-hover:text-primary-900'
+      }`}>
         Read details
         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
       </div>
@@ -171,7 +214,7 @@ export default function ServicesSection() {
             className="inline-flex items-center gap-2 btn-primary px-8 py-4 text-base rounded-2xl"
           >
             Explore All Services
-            <ArrowRight className="w-4.5 h-4.5" />
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </div>

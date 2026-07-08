@@ -15,9 +15,13 @@ const navItems = [
     children: [
       { label: 'All Services', href: '/services/' },
       { label: 'Our Therapies', href: '/therapies/' },
+      { label: 'Home Physiotherapy', href: '/services/#home-physiotherapy' },
+      { label: 'Online Rehab', href: '/services/#online-physiotherapy' },
     ],
   },
+  { label: 'Dr Profiles', href: '/dr-profiles/' },
   { label: 'Blog', href: '/blog/' },
+  { label: 'FAQ', href: '/faq/' },
   { label: 'Contact', href: '/contact/' },
 ]
 

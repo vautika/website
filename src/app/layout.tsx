@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import type React from 'react'
+import Script from 'next/script'
 import { Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google'
 import '../styles/globals.css'
 import Header from '@/components/layout/Header'
@@ -7,6 +8,8 @@ import Footer from '@/components/layout/Footer'
 import FloatingButtons from '@/components/ui/FloatingButtons'
 import BackToTop from '@/components/ui/BackToTop'
 import StructuredData from '@/components/ui/StructuredData'
+import ContactPopup from '@/components/ui/ContactPopup'
+
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -121,12 +124,26 @@ export default function RootLayout({
         <meta name="ICBM" content="20.2961, 85.8189" />
       </head>
       <body className="min-h-screen flex flex-col antialiased">
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-0Y7KBFWSLF"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-0Y7KBFWSLF');
+          `}
+        </Script>
         <StructuredData />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
         <FloatingButtons />
         <BackToTop />
+        <ContactPopup />
       </body>
     </html>
   )

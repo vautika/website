@@ -14,7 +14,7 @@ const milestones = [
   { year: '2020', title: 'Advanced Equipment', desc: 'Introduced laser therapy, electrotherapy, and modern rehabilitation equipment.' },
   { year: '2021', title: 'Sports Medicine', desc: 'Dr. Mohanty completed prestigious FIFA Diploma in Sports Medicine.' },
   { year: '2022', title: '200+ Patients', desc: 'Crossed 200+ successfully treated patients across Bhubaneswar.' },
-  { year: '2023', title: 'Expanded Services', desc: 'Added pediatric rehabilitation and neuro rehab specializations.' },
+  { year: '2023', title: 'Expanded Services', desc: 'Added home-based physiotherapy and online virtual rehabilitation services.' },
   { year: '2024+', title: 'Growing Excellence', desc: '500+ patients treated, consistently rated 5 stars by patients.' },
 ]
 
@@ -124,7 +124,8 @@ export default function AboutPage() {
                     'Pain Management',
                     'Manual Therapy',
                     'Sports Performance Enhancement',
-                    'Pediatric Rehabilitation',
+                    'Home Based Physiotherapy',
+                    'Online Virtual Rehabilitation',
                     'Post-Surgical Rehab',
                     'Dry Needling',
                   ].map((e) => (

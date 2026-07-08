@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Physiotherapy Services in Bhubaneswar | Vautika Physiotherapy',
   description:
-    'Comprehensive physiotherapy services in Bhubaneswar: Orthopedic Rehabilitation, Neuro Rehab, Sports Rehabilitation, Pain Management, Pediatric Rehab, Manual Therapy, Laser Therapy and more.',
+    'Comprehensive physiotherapy services in Bhubaneswar: Orthopedic Rehabilitation, Neuro Rehab, Sports Rehabilitation, Pain Management, Home Based Physiotherapy, Online Physiotherapy, Manual Therapy, Laser Therapy and more.',
   alternates: { canonical: 'https://vautika.in/services/' },
 }
 
@@ -32,6 +32,7 @@ const services = [
     ],
     outcomes: 'Most patients achieve 80-100% recovery within 8-12 weeks with consistent therapy.',
     conditions: ['Fractures', 'Joint Replacement Rehab', 'Ligament Tears', 'Tendonitis', 'Muscle Strains'],
+    highlight: false,
   },
   {
     id: 'neuro',
@@ -56,30 +57,57 @@ const services = [
     ],
     outcomes: 'Significant improvements in mobility and daily function, with continuous progress over 3-6 months.',
     conditions: ['Stroke', 'Parkinson\'s Disease', 'Spinal Cord Injury', 'Multiple Sclerosis', 'Brain Injury'],
+    highlight: false,
   },
   {
-    id: 'pediatric',
-    emoji: '👶',
-    title: 'Pediatric Rehabilitation',
-    tagline: 'Gentle Care for Growing Bodies',
+    id: 'home-physiotherapy',
+    emoji: '🏠',
+    title: 'Home Based Physiotherapy',
+    tagline: 'Expert Care at Your Doorstep',
     description:
-      'Our pediatric physiotherapy program provides gentle, child-friendly treatment for infants, children, and adolescents. We use play-based therapy and age-appropriate techniques to make treatment enjoyable.',
+      'Our certified physiotherapist visits your home, bringing professional-grade assessment and treatment to you. Ideal for post-surgery patients, elderly individuals, and anyone with mobility restrictions. You get the same expert care as our clinic, in the comfort of your own space.',
     benefits: [
-      'Improve developmental milestones',
-      'Enhance motor skills',
-      'Build strength and coordination',
-      'Increase independence',
-      'Support healthy growth',
+      'No travel required — we come to you',
+      'Personalized one-on-one attention',
+      'Comfortable, familiar environment',
+      'Ideal for post-surgical recovery',
+      'Perfect for elderly & mobility-limited patients',
     ],
     process: [
-      'Developmental assessment',
-      'Family-centered goal setting',
-      'Play-based therapy sessions',
-      'Home exercise guidance for parents',
-      'School/activity integration',
+      'Phone/WhatsApp booking with your address',
+      'Home visit scheduling at your convenience',
+      'On-site assessment and treatment',
+      'Custom home exercise plan provided',
+      'Follow-up visits as needed',
     ],
-    outcomes: 'Children typically show measurable improvements in motor development within 4-8 weeks.',
-    conditions: ['Cerebral Palsy', 'Developmental Delays', 'Muscular Dystrophy', 'Torticollis', 'Autism (Motor)'],
+    outcomes: 'Patients experience equivalent clinical outcomes in a more comfortable setting, often showing better compliance with exercises.',
+    conditions: ['Post-Surgery Recovery', 'Elderly Care', 'Stroke Rehab at Home', 'Chronic Pain', 'Mobility Impairment'],
+    highlight: true,
+  },
+  {
+    id: 'online-physiotherapy',
+    emoji: '💻',
+    title: 'One on One Virtual Rehabilitation',
+    tagline: 'Online Physiotherapy, Anytime Anywhere',
+    description:
+      'Get personalized physiotherapy sessions via secure video call with Dr. Satya Mohanty. Our virtual rehabilitation program is evidence-based and tailored to your specific condition. Perfect for consultations, follow-ups, guided exercises, and posture correction — no matter where you are.',
+    benefits: [
+      'Consult from anywhere in India or abroad',
+      'Flexible scheduling to fit your lifestyle',
+      'No commute — save time and energy',
+      'Video-guided exercise programs',
+      'Ongoing support between sessions',
+    ],
+    process: [
+      'Book your online slot via WhatsApp or phone',
+      'Receive a secure video call link',
+      'Live assessment & personalized program',
+      'Digital exercise guide shared post-session',
+      'Regular follow-ups to track progress',
+    ],
+    outcomes: 'Online rehab shows clinical outcomes comparable to in-person sessions for many conditions, especially musculoskeletal issues.',
+    conditions: ['Back Pain', 'Neck Pain', 'Shoulder Pain', 'Posture Correction', 'General Fitness & Rehab'],
+    highlight: true,
   },
   {
     id: 'sports',
@@ -104,6 +132,7 @@ const services = [
     ],
     outcomes: 'Most athletes return to full competition within 6-12 weeks with our structured programs.',
     conditions: ['Ligament Sprains', 'Muscle Tears', 'Stress Fractures', 'Tendinopathies', 'Joint Dislocations'],
+    highlight: false,
   },
   {
     id: 'pain',
@@ -128,6 +157,7 @@ const services = [
     ],
     outcomes: 'Up to 70-80% pain reduction within 6-8 weeks for most chronic pain conditions.',
     conditions: ['Chronic Back Pain', 'Fibromyalgia', 'Nerve Pain', 'Headaches', 'Myofascial Pain'],
+    highlight: false,
   },
 ]
 
@@ -142,7 +172,7 @@ export default function ServicesPage() {
             Comprehensive Physiotherapy Services
           </h1>
           <p className="text-white/80 text-lg max-w-3xl mx-auto">
-            Advanced, evidence-based treatment programs for a wide range of conditions — tailored to your individual recovery goals.
+            Advanced, evidence-based treatment programs for a wide range of conditions — at our clinic, at your home, or online.
           </p>
         </div>
       </div>
@@ -150,15 +180,24 @@ export default function ServicesPage() {
       {/* Services */}
       <section className="section-padding">
         <div className="container-custom space-y-16">
-          {services.map(({ id, emoji, title, tagline, description, benefits, process, outcomes, conditions: conds }, i) => (
+          {services.map(({ id, emoji, title, tagline, description, benefits, process, outcomes, conditions: conds, highlight }, i) => (
             <div
               key={id}
               id={id}
-              className={`grid lg:grid-cols-2 gap-12 items-start ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
+              className={`grid lg:grid-cols-2 gap-12 items-start ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''} ${
+                highlight ? 'rounded-3xl border-2 border-primary-900 p-8 bg-primary-50/30' : ''
+              }`}
             >
               {/* Left */}
               <div className={i % 2 !== 0 ? 'lg:order-2' : ''}>
-                <div className="text-5xl mb-4">{emoji}</div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="text-5xl">{emoji}</div>
+                  {highlight && (
+                    <span className="text-xs font-bold bg-accent-500 text-primary-900 px-3 py-1 rounded-full uppercase tracking-wider">
+                      ✨ New Service
+                    </span>
+                  )}
+                </div>
                 <span className="badge bg-primary-50 dark:bg-primary-900/30 text-primary-900 dark:text-primary-300 mb-3">
                   {tagline}
                 </span>

@@ -152,7 +152,7 @@ export default function DoctorSection() {
                 With over 5 years of active clinical experience, Dr. Mohanty focuses on evidence-based, customized patient rehab, ensuring every individual returns to their daily routines pain-free and stronger.
               </p>
               <p>
-                He delivers international-standard orthopedic rehabilitation, injury recovery, and pain relief therapy at accessible clinic rates inside Bhubaneswar.
+                He delivers international-standard orthopedic rehabilitation, injury recovery, and pain relief therapy at accessible clinic rates in Bhubaneswar.
               </p>
             </div>
 

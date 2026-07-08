@@ -51,7 +51,8 @@ export default function StructuredData() {
           'Orthopedic Rehabilitation',
           'Neuro Rehabilitation',
           'Sports Medicine',
-          'Pediatric Rehabilitation',
+          'Home Based Physiotherapy',
+          'Online Virtual Rehabilitation',
           'Pain Management',
         ],
         hasMap: 'https://maps.app.goo.gl/2i7MhmxYRLUcJ6rF8',
@@ -131,7 +132,7 @@ export default function StructuredData() {
             name: 'What services are offered at Vautika Physiotherapy?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'We offer Orthopedic Rehabilitation, Neuro Rehabilitation, Pediatric Rehabilitation, Sports Rehabilitation, Pain Management, Manual Therapy, Electro Therapy, Laser Therapy, Cupping Therapy, Needling Therapy, and Sports Specific Training.',
+              text: 'We offer Orthopedic Rehabilitation, Neuro Rehabilitation, Sports Rehabilitation, Home Based Physiotherapy, Online Virtual Rehabilitation, Pain Management, Manual Therapy, Electro Therapy, Laser Therapy, Cupping Therapy, Needling Therapy, and Sports Specific Training.',
             },
           },
           {

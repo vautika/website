@@ -18,7 +18,8 @@ const faqs = [
   },
   {
     q: 'What conditions do you treat at Vautika Physiotherapy?',
-    a: 'We treat a wide range of conditions including back pain, neck pain, knee pain, shoulder pain, frozen shoulder, sciatica, arthritis, sports injuries, post-surgical rehabilitation, neurological conditions (stroke, Parkinson\'s), pediatric conditions, and much more.',
+    a: 'We treat a wide range of conditions including back pain, neck pain, knee pain, shoulder pain, frozen shoulder, sciatica, arthritis, sports injuries, post-surgical rehabilitation, neurological conditions (stroke, Parkinson\'s), and much more. We also offer home visits and online virtual sessions.',
+
   },
   {
     q: 'What makes Vautika Physiotherapy different from other clinics?',

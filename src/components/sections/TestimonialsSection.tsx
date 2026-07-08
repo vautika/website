@@ -39,10 +39,10 @@ const testimonials = [
   },
   {
     name: 'Sujata Mishra',
-    location: 'Bhubaneswar',
+    location: 'Delhi (Online Patient)',
     rating: 5,
-    text: 'My son had developmental delays and the pediatric rehabilitation at Vautika has been transformative. The team is extremely patient, skilled, and caring. Highly recommend!',
-    condition: 'Pediatric Rehab',
+    text: 'I was skeptical about online physiotherapy but the virtual rehabilitation session with Dr. Mohanty was incredibly effective. He guided me through exercises for my back pain and I felt relief within days!',
+    condition: 'Online Physiotherapy',
     initial: 'SM',
     color: 'bg-accent-600 text-white',
   },
