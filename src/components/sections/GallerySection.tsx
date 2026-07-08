@@ -149,20 +149,9 @@ const galleryItems: GalleryItem[] = [
   }
 ]
 
-const CATEGORIES = [
-  { id: 'all', label: 'All Photos' },
-  { id: 'treatment', label: 'Treatments & Rehab' },
-  { id: 'event', label: 'Sports & State Events' }
-]
-
 export default function GallerySection() {
-  const [activeTab, setActiveTab] = useState<'all' | 'treatment' | 'clinic' | 'event'>('all')
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
   const carouselRef = useRef<HTMLDivElement>(null)
-
-  const filteredItems = galleryItems.filter(
-    item => activeTab === 'all' || item.category === activeTab
-  )
 
   // Auto-scroll logic for carousel
   useEffect(() => {
@@ -182,7 +171,7 @@ export default function GallerySection() {
 
     startAutoPlay()
     return () => clearInterval(intervalId)
-  }, [activeTab])
+  }, [])
 
   const scrollLeft = () => {
     carouselRef.current?.scrollBy({ left: -320, behavior: 'smooth' })
@@ -194,12 +183,12 @@ export default function GallerySection() {
 
   const handleNextImage = () => {
     if (lightboxIndex === null) return
-    setLightboxIndex((lightboxIndex + 1) % filteredItems.length)
+    setLightboxIndex((lightboxIndex + 1) % galleryItems.length)
   }
 
   const handlePrevImage = () => {
     if (lightboxIndex === null) return
-    setLightboxIndex((lightboxIndex - 1 + filteredItems.length) % filteredItems.length)
+    setLightboxIndex((lightboxIndex - 1 + galleryItems.length) % galleryItems.length)
   }
 
   return (
@@ -208,28 +197,11 @@ export default function GallerySection() {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="badge mb-4">Vautika Gallery</span>
           <h2 className="section-title mb-4">
-            Our Clinic, Events &amp; <span className="font-medium italic text-secondary-700">Treatments in Action</span>
+            Our Gallery &amp; <span className="font-medium italic text-secondary-700">Treatments in Action</span>
           </h2>
           <p className="section-subtitle">
             Take a look at our clinical environment, advanced therapy treatments, and state conferences with Odisha's top medical professionals.
           </p>
-
-          {/* Category Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 mt-8">
-            {CATEGORIES.map(cat => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveTab(cat.id as any)}
-                className={`text-xs md:text-sm px-5 py-2.5 rounded-full font-bold font-sans transition-all duration-300 ${
-                  activeTab === cat.id
-                    ? 'bg-primary-900 text-white shadow-md'
-                    : 'bg-white text-slate-600 border border-stone-200 hover:border-primary-900 hover:text-primary-900'
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
         </div>
 
         {/* Carousel Container */}
@@ -248,7 +220,7 @@ export default function GallerySection() {
             className="flex gap-6 overflow-x-auto scrollbar-hide py-4 px-2 snap-x snap-mandatory"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            {filteredItems.map((item, index) => (
+            {galleryItems.map((item, index) => (
               <div
                 key={item.id}
                 onClick={() => setLightboxIndex(index)}
@@ -267,9 +239,6 @@ export default function GallerySection() {
                       <Maximize2 className="w-5 h-5" />
                     </span>
                   </div>
-                  <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm border border-stone-100 text-[10px] font-bold text-primary-900 uppercase tracking-widest px-3 py-1.5 rounded-lg shadow-sm">
-                    {item.category === 'treatment' ? 'Treatment' : item.category === 'clinic' ? 'Clinic' : 'Event'}
-                  </span>
                 </div>
                 <div className="p-5">
                   <h3 className="font-display font-bold text-primary-900 text-sm md:text-base truncate mb-1">
@@ -294,7 +263,7 @@ export default function GallerySection() {
 
         {/* Indicator dots for mobile swipe */}
         <div className="flex justify-center gap-1.5 mt-6 md:hidden">
-          {filteredItems.slice(0, Math.min(filteredItems.length, 6)).map((_, i) => (
+          {galleryItems.slice(0, Math.min(galleryItems.length, 6)).map((_, i) => (
             <span key={i} className="w-1.5 h-1.5 rounded-full bg-slate-300" />
           ))}
         </div>
@@ -304,10 +273,7 @@ export default function GallerySection() {
       {lightboxIndex !== null && (
         <div className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-md flex flex-col justify-between py-6 px-4 md:px-12 select-none">
           {/* Top Bar */}
-          <div className="flex justify-between items-center text-white/80">
-            <span className="text-xs font-bold uppercase tracking-widest bg-white/10 px-3 py-1.5 rounded-lg">
-              {filteredItems[lightboxIndex].category}
-            </span>
+          <div className="flex justify-end items-center text-white/80">
             <button
               onClick={() => setLightboxIndex(null)}
               className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
@@ -331,8 +297,8 @@ export default function GallerySection() {
             {/* Image */}
             <div className="relative w-full max-w-4xl h-[55vh] md:h-[70vh]">
               <Image
-                src={filteredItems[lightboxIndex].src}
-                alt={filteredItems[lightboxIndex].title}
+                src={galleryItems[lightboxIndex].src}
+                alt={galleryItems[lightboxIndex].title}
                 fill
                 sizes="(max-width: 1200px) 100vw, 1200px"
                 className="object-contain"
@@ -353,13 +319,13 @@ export default function GallerySection() {
           {/* Description Footer */}
           <div className="text-center text-white max-w-2xl mx-auto space-y-2">
             <h3 className="font-display font-bold text-lg md:text-xl">
-              {filteredItems[lightboxIndex].title}
+              {galleryItems[lightboxIndex].title}
             </h3>
             <p className="text-xs md:text-sm text-slate-400">
-              {filteredItems[lightboxIndex].desc}
+              {galleryItems[lightboxIndex].desc}
             </p>
             <span className="inline-block text-[10px] text-slate-500 pt-2 font-mono">
-              {lightboxIndex + 1} of {filteredItems.length}
+              {lightboxIndex + 1} of {galleryItems.length}
             </span>
           </div>
         </div>
